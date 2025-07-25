@@ -108,7 +108,8 @@ namespace RealEstateApi.Controllers
         [Authorize]
         public IActionResult GetSearchProperties(string address)
         {
-            var propertiesResult = _dbContext.Properties.Select(p => new { p.Id, p.Name, p.Address }).Where(p => p.Address.Contains(address));
+            var propertiesResult = _dbContext.Properties.Select(p => 
+                new { p.Id, p.Name, p.Address }).Where(p => p.Address.Contains(address));
             if (propertiesResult == null)
             {
                 return NotFound();
